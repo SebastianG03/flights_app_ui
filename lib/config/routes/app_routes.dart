@@ -1,9 +1,6 @@
-import 'package:flights_app/layers/presentation/screens/home/home.dart';
-import 'package:flights_app/layers/presentation/screens/home/home_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../layers/presentation/screens/login.dart';
+import '../../layers/presentation/screens/screens.dart';
 
 class AppRoutes {
   AppRoutes();
@@ -60,14 +57,14 @@ class AppRoutes {
     GoRoute(
       name: homePage,
       path: _homePageRoute,
-      builder: (context, state) => const TemplateScreen(
+      builder: (context, state) => const TemplateHomeScreen(
         child: HomeScreen(),
       ),
     ),
     GoRoute(
       name: explorePage,
       path: _explorePageroute,
-      builder: (context, state) => const TemplateScreen(
+      builder: (context, state) => const TemplateHomeScreen(
         initialIndex: 1,
         child: MapScreen(),
       ),
@@ -75,7 +72,7 @@ class AppRoutes {
     GoRoute(
       name: profilePage,
       path: _profilePageRoute,
-      builder: (context, state) => const TemplateScreen(
+      builder: (context, state) => const TemplateHomeScreen(
         initialIndex: 2,
         child: ProfileScreen(),
       ),

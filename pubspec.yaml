@@ -51,6 +51,7 @@ dependencies:
   url_launcher: ^6.3.1
   flutter_map_cancellable_tile_provider: ^3.0.2
   super_tooltip: ^2.0.9
+  page_transition: ^2.1.0
 
 dev_dependencies:
   flutter_test:

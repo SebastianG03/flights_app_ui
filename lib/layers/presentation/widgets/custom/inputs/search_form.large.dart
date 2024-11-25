@@ -2,14 +2,14 @@ import 'package:flights_app/config/theme/app_theme.dart';
 import 'package:flights_app/layers/presentation/widgets/custom/buttons/clear_icon.dart';
 import 'package:flutter/material.dart';
 
-class SearchForm extends StatefulWidget {
-  const SearchForm({super.key});
+class SearchFormLarge extends StatefulWidget {
+  const SearchFormLarge({super.key});
 
   @override
-  State<SearchForm> createState() => _SearchFormState();
+  State<SearchFormLarge> createState() => _SearchFormLargeState();
 }
 
-class _SearchFormState extends State<SearchForm> {
+class _SearchFormLargeState extends State<SearchFormLarge> {
   String search = '';
   final TextEditingController controller = TextEditingController();
 

@@ -1,10 +1,11 @@
 import 'package:flights_app/layers/presentation/widgets/shared/bottom_bar.dart';
 import 'package:flutter/material.dart';
 
-class TemplateScreen extends StatelessWidget {
+class TemplateHomeScreen extends StatelessWidget {
   final int initialIndex;
   final Widget child;
-  const TemplateScreen({super.key, required this.child, this.initialIndex = 0});
+  const TemplateHomeScreen(
+      {super.key, required this.child, this.initialIndex = 0});
 
   @override
   Widget build(BuildContext context) {
