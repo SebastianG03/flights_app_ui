@@ -48,6 +48,9 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData.light().copyWith(
       primaryColor: Colors.lightBlue,
       colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent.shade400),
+      bottomSheetTheme: const BottomSheetThemeData(
+        backgroundColor: Colors.white,
+      ),
       buttonTheme: const ButtonThemeData(
         padding: EdgeInsets.all(15),
         splashColor: Colors.transparent,

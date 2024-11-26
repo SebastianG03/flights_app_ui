@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 class ClearIcon extends StatelessWidget {
@@ -15,18 +16,24 @@ class ClearIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(10.0),
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        border: Border.all(
-            color: borderColor, style: BorderStyle.solid, width: 1.5),
-        shape: BoxShape.circle,
-      ),
-      child: Icon(
-        Icons.clear_rounded,
-        color: iconColor,
-        size: iconSize,
+    return FadeInLeft(
+      animate: true,
+      from: 15,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.fastOutSlowIn,
+      child: Container(
+        margin: const EdgeInsets.all(10.0),
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          border: Border.all(
+              color: borderColor, style: BorderStyle.solid, width: 1.5),
+          shape: BoxShape.circle,
+        ),
+        child: Icon(
+          Icons.clear_rounded,
+          color: iconColor,
+          size: iconSize,
+        ),
       ),
     );
   }

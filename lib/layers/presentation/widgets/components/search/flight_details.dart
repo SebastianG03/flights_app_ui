@@ -1,3 +1,4 @@
+import 'package:flights_app/layers/presentation/widgets/custom/modals/bottom_modal.dart';
 import 'package:flutter/material.dart';
 
 import '../../custom/buttons/custom_dropdown.dart';
@@ -7,27 +8,34 @@ class FlightDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(right: 10, left: 10, bottom: 10),
+    return Padding(
+      padding: const EdgeInsets.only(right: 10, left: 10, bottom: 10),
       child: Row(
         children: [
-          CustomDropdownButton(
+          CustomModalButton(
             hint: '1 Traveler',
-            items: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+            onTap: () {
+              BottomModalSheet.show(
+                  context,
+                  "Cabin Class",
+                  Container(
+                    height: 200,
+                  ));
+            },
           ),
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
-          CustomDropdownButton(
+          CustomModalButton(
             hint: 'Economic',
-            items: ['Economic', 'Premium Economic', 'Business', 'First'],
+            onTap: () {},
           ),
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
-          CustomDropdownButton(
+          CustomModalButton(
             hint: 'Baggage',
-            items: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+            onTap: () {},
           ),
         ],
       ),

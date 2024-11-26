@@ -1,41 +1,29 @@
 import 'package:flutter/material.dart';
 
-class CustomDropdownButton extends StatefulWidget {
+class CustomModalButton extends StatefulWidget {
   final String hint;
-  final List<String> items;
-  const CustomDropdownButton(
-      {super.key, required this.items, required this.hint});
+  final VoidCallback onTap;
+  const CustomModalButton({super.key, required this.onTap, required this.hint});
 
   @override
-  State<CustomDropdownButton> createState() => _CustomDropdownButtonState();
+  State<CustomModalButton> createState() => _CustomModalButtonState();
 }
 
-class _CustomDropdownButtonState extends State<CustomDropdownButton> {
+class _CustomModalButtonState extends State<CustomModalButton> {
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.grey.shade400, width: 1.5),
+    return InkWell(
+      onTap: () => widget.onTap(),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: Colors.grey.shade400, width: 1.5),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text(widget.hint),
+        ),
       ),
-      child: DropdownButton<String>(
-          iconSize: 0,
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-          hint: Text(
-            widget.hint,
-            style: const TextStyle(color: Colors.black, fontSize: 14),
-          ),
-          items: [
-            ...widget.items.map((val) => DropdownMenuItem<String>(
-                value: val,
-                child: Text(
-                  val,
-                )))
-          ],
-          style: const TextStyle(
-              fontWeight: FontWeight.normal, fontSize: 14, color: Colors.black),
-          underline: const SizedBox.shrink(),
-          onChanged: (value) {}),
     );
   }
 }
