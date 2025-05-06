@@ -1,4 +1,3 @@
-import 'package:flights_app/config/routes/app_routes.dart';
 import 'package:flights_app/config/theme/app_theme.dart';
 import 'package:flights_app/layers/presentation/screens/screens.dart';
 import 'package:flutter/material.dart';

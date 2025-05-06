@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../custom/inputs/search_form.medium.dart';
+import '../../custom/inputs/inputs.dart';
 
 class SearchSpace extends StatefulWidget {
   const SearchSpace({super.key});
@@ -26,13 +26,13 @@ class _SearchSpaceState extends State<SearchSpace> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SearchFormMedium(
+                SearchForm.medium(
                   prefixIcon: Icons.flight_takeoff_rounded,
                   helperText: 'Departure',
                   controller: departureController,
                 ),
                 const SizedBox(height: 5),
-                SearchFormMedium(
+                SearchForm.medium(
                   prefixIcon: Icons.flight_land,
                   helperText: 'Landing',
                   controller: landingController,

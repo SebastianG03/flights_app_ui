@@ -1,10 +1,22 @@
 import 'package:flights_app/config/theme/app_theme.dart';
+import 'package:flights_app/layers/presentation/widgets/custom/buttons/large_button.dart';
 import 'package:flutter/material.dart';
 
 class BottomModalSheet {
-  static void show(BuildContext context, String title, Widget content) {
-    Scaffold.of(context).showBottomSheet((context) {
-      return BottomSheetContainer(title: title, content: content);
+  static void show(
+      {required BuildContext context,
+      required String title,
+      required Widget content,
+      required double height,
+      bool isSubmitted = false,
+      VoidCallback? onSubmitted}) {
+    Scaffold.of(context).showBottomSheet(enableDrag: true, (context) {
+      return BottomSheetContainer(
+          title: title,
+          content: content,
+          onSubmitted: onSubmitted,
+          isSubmitted: isSubmitted,
+          height: height);
     });
   }
 }
@@ -42,15 +54,16 @@ class _BottomModalSheetHeader extends StatelessWidget {
 class BottomSheetContainer extends StatelessWidget {
   final String title;
   final Widget content;
+  final VoidCallback? onSubmitted;
+  final bool isSubmitted;
+  final double height;
   const BottomSheetContainer(
-      {super.key, required this.title, required this.content});
-
-  void _onTapDownDetails(TapDownDetails details) {
-    final x = details.globalPosition.dx;
-    final y = details.globalPosition.dy;
-    debugPrint("Position details: ${details.localPosition}");
-    debugPrint("Tap Down: ${x.toString()}, ${y.toString()}");
-  }
+      {super.key,
+      required this.title,
+      required this.content,
+      required this.isSubmitted,
+      required this.height,
+      this.onSubmitted});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +77,7 @@ class BottomSheetContainer extends StatelessWidget {
         )
       ]),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.65,
+        height: height,
         width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
@@ -75,7 +88,16 @@ class BottomSheetContainer extends StatelessWidget {
             _BottomModalSheetHeader(
               title: title,
             ),
-            content
+            content,
+            if (isSubmitted) ...[
+              LargeButton(
+                text: 'Apply',
+                color: Colors.blueGrey,
+                hasShadow: false,
+                textColor: Colors.white,
+                onTap: onSubmitted,
+              )
+            ]
           ],
         ),
       ),

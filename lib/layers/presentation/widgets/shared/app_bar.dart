@@ -23,7 +23,11 @@ class CustomAppBar extends ConsumerWidget {
           style: AppTheme.titleTextStyle.copyWith(color: Colors.white)),
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: const EdgeInsets.only(top: 2),
-        title: const SearchFormLarge(),
+        title: SearchForm.large(
+          prefixIcon: Icons.search_rounded,
+          helperText: "Search hotels, train, flights, etc...",
+          controller: TextEditingController(),
+        ),
         background: Stack(
           fit: StackFit.expand,
           children: [

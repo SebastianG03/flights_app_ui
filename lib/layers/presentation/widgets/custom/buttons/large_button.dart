@@ -6,12 +6,14 @@ class LargeButton extends StatelessWidget {
   final bool hasShadow;
   final Color color;
   final Color textColor;
+  final VoidCallback? onTap;
 
   const LargeButton(
       {super.key,
       required this.text,
       this.hasShadow = true,
       this.color = AppTheme.primaryButton,
+      this.onTap,
       this.textColor = Colors.black});
 
   @override
@@ -31,10 +33,10 @@ class LargeButton extends StatelessWidget {
                 offset: Offset(5, 5))
           ];
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 9),
-        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
         decoration: BoxDecoration(
           color: color,
           border: Border.all(color: Colors.green.shade400),

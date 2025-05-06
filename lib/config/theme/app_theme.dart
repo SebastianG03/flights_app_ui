@@ -26,11 +26,8 @@ class AppTheme {
       fontWeight: FontWeight.normal,
       decoration: TextDecoration.none);
 
-  static final TextStyle titleTextStyle = GoogleFonts.aBeeZee(
-      color: Colors.black,
-      fontSize: 24,
-      fontWeight: FontWeight.bold,
-      decoration: TextDecoration.none);
+  static final TextStyle titleTextStyle = GoogleFonts.quicksand(
+      color: Colors.black, fontSize: 24, decoration: TextDecoration.none);
 
   static final TextStyle cardTitleTextStyle = GoogleFonts.aBeeZee(
       color: Colors.black,

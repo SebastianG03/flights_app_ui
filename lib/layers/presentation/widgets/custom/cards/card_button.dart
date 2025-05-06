@@ -1,6 +1,5 @@
 import 'package:flights_app/config/theme/app_theme.dart';
 import 'package:flights_app/layers/domain/entities/items_data.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -20,7 +19,7 @@ class _CardButtonState extends ConsumerState<CardButton> {
             color: const Color.fromARGB(255, 255, 134, 134), width: 1.3),
         boxShadow: [
           BoxShadow(
-              color: Colors.black.withOpacity(0.2),
+              color: Colors.black.withValues(alpha: 0.2),
               blurRadius: 3,
               spreadRadius: 2,
               blurStyle: BlurStyle.normal,
